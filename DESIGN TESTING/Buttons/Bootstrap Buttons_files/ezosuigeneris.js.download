@@ -1,0 +1,6 @@
+var ezosuigeneris = 'a10fd7754069156c80782380d271ded7';
+if(typeof ezosuigeneris != "undefined") {
+    var ezosuigenerisDate = new Date();
+    ezosuigenerisDate.setMonth(ezosuigenerisDate.getMonth() + 24);
+    document.cookie = "ezosuigeneris=" + ezosuigeneris + ";expires=" + ezosuigenerisDate.toUTCString() + ";domain="+ezdomain+";path=/";
+}

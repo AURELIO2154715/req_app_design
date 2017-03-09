@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://s0.2mdn.net/5229001/1488783108517/300x250%20-%20Copy/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="ad.size" content="width=300,height=250">
+	<script type="text/javascript">
+	var clickTag = "http://www.google.com"; </script>
+	<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script><style>
+		html {
+			width: 300px;
+			height: 250px;
+		}
+		body {
+			width: 300px;
+			height: 250px;
+			margin: 0;
+			padding: 0;
+			background: #fff;
+		}
+		.container {
+			width: 300px;
+			height: 250px;
+			overflow: hidden;
+			position: relative;
+			border: 1px solid #000;
+			background: #fff;
+		}
+
+		.frame {
+			width: 300px;
+			height: 250px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			opacity: 1;
+		}
+
+		#frame1 {
+			position: absolute;
+			bottom: 28px;
+			left: 70px;
+			opacity: 1;
+		}
+
+		#frame2 {
+			position: absolute;
+			bottom: 15px;
+			left: 20px;
+			opacity: 1;
+		}
+
+		#frame3 {
+			position: absolute;
+			bottom: 25px;
+			left: 55px;
+			opacity: 1;
+		}
+
+		.hidden {
+			opacity: 0!important;
+		}
+
+		.bg {
+			background-color: #000;
+			width: 300px;
+			height: 250px;
+			position: absolute;
+			left: 0px;
+			top:0px;
+		}
+
+		.animate1 {
+			-ms-transform: translate3d(-300px,0,0)!important; /* IE 9 */
+			-webkit-transform: translate3d(-300px,0,0)!important; /* Safari */
+			transform: translate3d(-300px,0,0)!important;
+		}
+
+		.trans-fast {
+	  	  -webkit-transition: all 500ms ease-out;
+	  	  -moz-transition: all 500ms ease-out;
+	  	  -o-transition: all 500ms ease-out;
+	  	  transition: all 500ms ease-out;
+	  	}
+
+	  	.trans {
+	  	  -webkit-transition: all 800ms ease-out;
+	  	  -moz-transition: all 800ms ease-out;
+	  	  -o-transition: all 800ms ease-out;
+	  	  transition: all 800ms ease-out;
+	  	}
+	</style><script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head>
+	
+
+<body>
+	<a href="javascript:window.open(window.clickTag)">
+	<div class="container trans">
+		<div class="bg"><img src="./bg.jpg"></div>
+		<div id="frame1" class="trans hidden"><img src="./frame1.png"></div>
+		<div id="frame2" class="trans hidden"><img src="./frame2.png"></div>
+		<div id="frame3" class="trans"><img src="./frame3.png"></div>
+	</div></a>
+
+<script>
+	var time = 0;
+    setTimeout(function(){
+      var d1 = document.getElementById("frame1");
+	  d1.className = "trans";
+    },time);
+    time = time + 3000;
+    setTimeout(function(){
+      var d1 = document.getElementById("frame1");
+	  d1.className = "trans hidden";
+	  var d1 = document.getElementById("frame2");
+	  d1.className = "trans";
+    },time);
+    time = time + 3000;
+    setTimeout(function(){
+      var d1 = document.getElementById("frame2");
+	  d1.className = "trans hidden";
+	  var d1 = document.getElementById("frame3");
+	  d1.className = "trans";
+    },time);
+</script>
+</body></html>
